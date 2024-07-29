@@ -1,0 +1,17 @@
+1. 创建一个新的S3存储桶，选择合适的区域。
+2. 配置存储桶权限，允许公共读取访问。
+3. 上传一个文件到存储桶（如图片或文本文件）。
+4. 生成该文件的公开URL并通过浏览器访问。
+	权限全打开，然后写存储桶策略进行更新
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::your-bucket-name/*"
+        }
+    ]
+}
